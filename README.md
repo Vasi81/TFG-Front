@@ -25,3 +25,16 @@ Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To u
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+
+
+
+## Release proyect with docker.
+
+docker build -f Dockerfile -t MiEspacio/MiProyecto:PRD170501 .
+
+docker push MiEspacio/MiProyecto:PRD170501
+
+## From server.
+sudo docker pull MiEspacio/MiProyecto:PRD170501
+
+sudo docker run -p 443:443 -d MiEspacio/MiProyectos:PRD170501
