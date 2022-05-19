@@ -7,7 +7,7 @@
       <ngb-carousel>
         <ng-template ngbSlide *ngFor="let profile of profilesService.profiles">
           <img src="http://localhost:8082/imagenes/thumbnail/{{profile.oficinaId }}.{{profile.extPath }}" alt="{{ profile.name }}" *ngIf="profile.imagePrincipal=='si'">
-          <img src="http://localhost:8082/imagenes/card/{{profile.oficinaId }}_{{profile.imagePath }}" alt="{{ profile.name }}" *ngIf="profile.imagePrincipal=='no'">
+          <img src="http://localhost:8082/imagenes/normal/{{profile.oficinaId }}_{{profile.imagePath }}" alt="{{ profile.name }}" *ngIf="profile.imagePrincipal=='no'">
           <div class="carousel-caption">
             <h3>{{ profile.name }}</h3>
           </div>
