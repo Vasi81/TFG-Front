@@ -1,0 +1,14 @@
+<div class="bg-light me-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden">
+    <div class="map">
+        <agm-map [latitude]="lat" [longitude]="lng"  [zoom]="zoom" [title]="title"  >
+            <agm-marker 
+            *ngFor="let m of markers;"
+            [latitude]="m.lat"
+            [longitude]="m.long"
+            [title]="m.title"
+            [label]="m.label"
+            >
+        </agm-marker>
+        </agm-map> 
+    </div>
+  </div>

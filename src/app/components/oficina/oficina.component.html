@@ -1,0 +1,44 @@
+<main>
+    <div class="vista py-5 bg-light">
+      <!-- TABLE -->
+      <div class="form-group col-md-10 ">
+        <a [routerLink]="[ '/employee' ]" id="btnEmployee" class="btn btn-secondary">Comerciales
+        </a>
+        <a [routerLink]="[ '/oficina' ]" id="btnOficina" class="btn btn-secondary btn-warning">Oficinas
+        </a>
+        <h1>Oficinas</h1>
+        <app-oficinas-busqueda></app-oficinas-busqueda>
+        <table class="table table-striped">
+          <thead>
+            <th>Title</th>
+            <th>Modalidad</th>
+            <th>Provincia</th>
+            <th>Ciudad</th>
+            <th>Código Postal</th>
+            <th><a (click)="editOficina(oficina)" class="btn btn-sm">
+              <i class="material-icons">add</i>
+            </a>
+          </th>
+          </thead>
+          <tbody>
+            <tr *ngFor="let oficina of oficinasService.oficinas">
+              <td>{{ oficina.title }}</td>
+              <td>{{ oficina.modality }}</td>
+              <td>{{ oficina.province }}</td>
+              <td>{{ oficina.city }}</td>
+              <td>{{ oficina.zip_code }}</td>
+              <td>
+                <a (click)="editOficina(oficina)" class="btn btn-secondary btn-sm">
+                  <i class="material-icons">edit</i>
+                </a>
+                <a (click)="deleteOficina(oficina.id)" class="btn btn-danger btn-sm">
+                  <i class="material-icons">delete</i>
+                </a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </main>
+    

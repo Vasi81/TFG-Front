@@ -1,0 +1,12 @@
+agm-map {
+    height: 391px;
+    width: 1200px;
+}
+
+.map {
+    height: 391px;
+    width: 1200px;
+    display: inline-block;
+    border-radius: 24px;
+    overflow: hidden;
+  }

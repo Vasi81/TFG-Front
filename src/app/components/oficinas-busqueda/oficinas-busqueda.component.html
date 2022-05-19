@@ -1,0 +1,27 @@
+<div class="card shadow-sm p-3 mb-5 bg-light rounded">
+    <form #oficinaForm="ngForm" (ngSubmit)="postOficinasByoptions(oficinaForm)">
+        <div class="row">
+            <div class="col-md-2">
+                <input type="text"  name="title" #title="ngModel" [(ngModel)]="oficinasService.selectedOficinas.title" class="form-control" id="inputtitle" placeholder="Oficina">
+            </div>
+            <div class="col-md-3">
+                <input type="text"  name="modality" #road_name="ngModel" [(ngModel)]="oficinasService.selectedOficinas.modality" class="form-control" id="inputmodality" placeholder="modalidad">
+            </div>
+            <div class="col-md-2">
+                <input type="text" name="province" #province="ngModel" [(ngModel)]="oficinasService.selectedOficinas.province"  class="form-control" id="inputProvince" placeholder="Provincia">
+            </div>
+            <div class="col-md-2">
+                <input type="text" name="city" #city="ngModel" [(ngModel)]="oficinasService.selectedOficinas.city"  class="form-control" id="inputCity" placeholder="Ciudad">
+            </div>
+            <div class="col-sm-1">
+                <input type="text" name="zip_code" #zip_code="ngModel" [(ngModel)]="oficinasService.selectedOficinas.zip_code"  class="form-control"  placeholder="Código Zip" id="Zip">
+            </div>
+            <div class="col-sm-1">
+                <input type="number" name="metros" #metros="ngModel" [(ngModel)]="oficinasService.selectedOficinas.metros"  class="form-control"   placeholder="m²" id="metros">
+            </div>
+            <div class="col-sm-1">
+                <button type="submit" class="btn btn-primary btn-warning">Buscar</button>
+            </div>
+        </div>
+    </form>
+</div>

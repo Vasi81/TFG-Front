@@ -1,0 +1,14 @@
+.vista {
+    display: flex;
+    justify-content: center;
+}
+
+.detalle {
+    padding: 10px;
+    margin: 10px;
+    
+}
+
+.file-input {
+    display: none;
+  }

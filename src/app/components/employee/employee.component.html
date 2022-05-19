@@ -1,0 +1,39 @@
+<main>
+    <div class="vista py-5 bg-light">
+      <!-- TABLE -->
+      <div class="form-group col-md-10 ">
+        <a [routerLink]="[ '/employee' ]" id="btnEmployee" class="btn btn-secondary">Comerciales
+        </a>
+        <a [routerLink]="[ '/oficina' ]" id="btnOficina" class="btn btn-secondary btn-warning">Oficinas
+        </a>
+        <h1>Comerciales</h1>
+        <table class="table table-striped">
+          <thead>
+            <th>Nombre</th>
+            <th>Usuario</th>
+            <th>Email</th>
+            <th><a (click)="editEmployee(employee)" class="btn btn-sm">
+              <i class="material-icons">add</i>
+            </a></th>
+          </thead>
+          <tbody>
+            <tr *ngFor="let employee of employeeService.employees">
+              <td>{{ employee.nombre }}</td>
+              <td>{{ employee.usuario }}</td>
+              <td>{{ employee.email }}</td>
+  
+              <td>
+                <a (click)="editEmployee(employee)" class="btn btn-secondary btn-sm">
+                  <i class="material-icons">edit</i>
+                </a>
+                <a (click)="deleteEmployee(employee.id)" class="btn btn-danger btn-sm">
+                  <i class="material-icons">delete</i>
+                </a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </main>
+  

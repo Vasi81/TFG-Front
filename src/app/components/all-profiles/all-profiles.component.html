@@ -1,0 +1,31 @@
+<div class="album py-5 bg-light">
+    <div class="card shadow-sm p-3 mb-5 bg-light rounded">
+      <div class="container" >
+        <h2 class="fw-light">Imágenes cargadas</h2>
+        <h2 class="fw-light">{{ idOficina}}</h2>
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-sm-3 g-3" >
+          <div class="col" *ngFor="let profile of profilesService.profiles" class="profile">
+            <div class="card shadow-sm">
+              <img class="bd-placeholder-img card-img-top" src="http://localhost:8082/imagenes/thumbnail/{{profile.oficinaId }}.{{profile.extPath }}" alt="{{ profile.name }}" width="10%" height="10%" *ngIf="profile.imagePrincipal=='si'">
+              <img class="bd-placeholder-img card-img-top" src="http://localhost:8082/imagenes/card/{{profile.oficinaId }}_{{profile.imagePath }}" alt="{{ profile.name }}" width="10%" height="10%" *ngIf="profile.imagePrincipal=='no'">
+              <div class="card-body">            
+                <div class="d-flex justify-content-between align-items-center">
+                  <img src="assets/images/destacado.png" width="10%" height="10%" *ngIf="profile.imagePrincipal=='si'" />
+                  <img src="assets/images/nodestacado.png" width="10%" height="10%" *ngIf="profile.imagePrincipal=='no'" />
+                  <p class="card-text">{{ profile.name }}</p>
+                </div>
+                <div class="d-flex justify-content-between align-items-center">
+                  <small class="text-muted">{{ profile.imagePath }}</small>
+                  <a (click)="deleteProfiles(profile._id)" class="btn btn-danger btn-sm">
+                    <i class="material-icons">delete</i>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <hr />
+  

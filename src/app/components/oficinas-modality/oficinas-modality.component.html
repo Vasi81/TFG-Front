@@ -1,0 +1,65 @@
+<html lang="en">
+  <head>
+  </head>
+  <body>
+<main>
+
+  <div id="Alquiler">
+    <div class="album py-5 bg-light">
+      <div class="container">
+        <h3 class="fw-light">Oficinas en Alquiler</h3>
+        <app-oficinas-filtro></app-oficinas-filtro>
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-sm-3 g-3" >
+          <div class="col" *ngFor="let oficinas of oficinasService.oficinasDestacadasAlquiler">
+            <div class="card shadow-sm" type="button" [routerLink]="[ '/oficinas',  oficinas.id ]">
+              <img class="bd-placeholder-img card-img-top" src="http://localhost:8082/imagenes/thumbnail/{{ oficinas.id }}.{{ oficinas.extPath }}" alt="{{ oficinas.title }}" width="20%" height="20%">
+              <div class="card-body">
+                <div class="d-flex justify-content-between align-items-center">
+                  <p class="card-text">{{ oficinas.title }}</p>
+                  <img src="assets/images/destacado.png" width="10%" height="10%" *ngIf="oficinas.is_destacada" />
+                  <img src="assets/images/nodestacado.png" width="10%" height="10%" *ngIf="!oficinas.is_destacada" />
+                </div>
+                <div class="d-flex justify-content-between align-items-center">
+                  <small class="text-muted">{{ oficinas.province }} , {{ oficinas.city }}, {{ oficinas.metros }} m²</small>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div id="Coworking">
+    <div class="album py-5 bg-light">
+      <div class="container">
+        <h3 class="fw-light">Oficinas en CoWorking</h3>
+        <app-oficinas-filtro></app-oficinas-filtro>
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+          <div class="col" *ngFor="let oficinas of oficinasService.oficinasDestacadasCoworking">
+            <div class="card shadow-sm" type="button" [routerLink]="[ '/oficinas',  oficinas.id ]">
+              <img class="bd-placeholder-img card-img-top" src="http://localhost:8082/imagenes/thumbnail/{{ oficinas.id }}.{{ oficinas.extPath }}" alt="{{ oficinas.title }}" width="20%" height="20%">
+              <div class="card-body">
+                <div class="d-flex justify-content-between align-items-center">
+                  <p class="card-text">{{ oficinas.title }}</p>
+                  <img src="assets/images/destacado.png" width="10%" height="10%"*ngIf="oficinas.is_destacada" />
+                  <img src="assets/images/nodestacado.png" width="10%" height="10%"*ngIf="!oficinas.is_destacada" />
+                </div>
+                <div class="d-flex justify-content-between align-items-center">
+                  <small class="text-muted">{{ oficinas.province }} , {{ oficinas.city }}, {{ oficinas.metros }} m²</small>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+
+
+
+
+    <script src="boostrap5js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+
+      
+  </body>

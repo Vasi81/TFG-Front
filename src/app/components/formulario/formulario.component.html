@@ -1,0 +1,46 @@
+<div id="myModal"  class="modal">
+    <!-- Modal content -->
+    <div class="modal-content">
+      <div class="modal-header">  
+        <p class="title">Solicitud de información</p>
+        <p>Déjanos tus datos y te contestaremos lo antes posible. Muchas gracias.</p>
+
+      </div>
+      <div class="modal-body">
+        <form id="formulario" [formGroup]="form" (submit)="addFormularioContacto()">
+          <label for="">Nombre*</label>
+          <input type="text" name="nombre" formControlName="nombre" placeholder="Introduce tu nombre" required>
+          <label for="">Email*</label>
+          <input type="email" formControlName="email" placeholder="Introduce tu email" required>
+          <label for="">Teléfono</label>
+          <input type="tel" formControlName="telefono" placeholder="Introduce tu teléfono">
+          <label for="">Empresa</label>
+          <input type="text" name="empresa" formControlName="empresa" placeholder="Introduce el nombre de tu empresa">
+          <label for="">Modalidad*</label>
+          <div class="modalidad-alquiler">
+            <label for="">Cantidad de puestos</label>
+            <select id="puestos" name="workspaces" class="tamaño"  placeholder="Cantidad de puestos">
+              <option data-value="todos" value="todos">Cantidad de puestos</option>
+              <option data-value="30" value="30">Hasta 30 puestos (hasta 450 m²)</option>
+              <option data-value="100" value="100">30-100 puestos (450-1.500 m²)</option>
+              <option data-value="300" value="300">100-300 puestos (1.500-4.500 m²)</option>
+              <option data-value="300+" value="300+">Más de 300 puestos (más de 4.500 m²)</option>
+            </select>
+          </div>
+          <label for="">Mensaje*</label>
+          <textarea placeholder="Escribe tu mensaje" formControlName="message" rows="4" required></textarea>
+          <input class="check" type="checkbox" id="acceptance" required> <span class="legal">He leído y acepto el <a target="_blank" href="/aviso-legal">Aviso Legal</a> y la <a target="_blank" href="/politica-de-privacidad">Política de Privacidad</a></span>
+          <div class="call-us">¿Prefieres llamarnos? <a href="tel:+34911014656" class="phone">91 101 46 56</a></div>
+          <button type="submit" class="btn btn-primary btn-warning">Enviar</button>
+          <p class="form-smalltext">
+            Oficinas&Coworking, S.A, le informa que los datos de carácter personal proporcionados quedarán incorporados en sus bases de datos, y con base en su interés legítimo, tratará sus datos de contacto con la finalidad de mantener relaciones de cualquier índole, prestar y ofrecer sus productos y servicios. Los datos recogidos son almacenados según la confidencialidad y las medidas de seguridad legalmente establecidas.
+            Asimismo, Oficinas&Coworking, S.A. le informa que los datos facilitados podrán ser cedidos a terceras compañías que ofrecen bienes y servicios similares a los aquí ofrecidos.
+            Mediante la firma del presente formulario usted da su consentimiento para que CBRE le envíe información de su interés sobre los productos y servicios de CBRE REAL ESTATE, S.A. y CBRE VALUATION ADVISORY, S.A.
+            Puede ejercer los derechos de acceso, cancelación, oposición, rectificación, supresión, limitación del tratamiento, portabilidad de los datos, y a no ser objeto de decisiones individuales automatizadas, incluida la elaboración de perfiles; a través de la dirección de correo electrónico spain.gdpr@cbre.com, personalmente en las oficinas de CBRE REAL ESTATE, S.A, o mediante comunicación escrita, acompañada de copia del correspondiente documento nacional de identidad, dirigida a CBRE REAL ESTATE, S.A, Paseo de la Castellana 202, planta 8ª,  28046 Madrid.
+            Para más información, no dude en consultar nuestra política de privacidad: <a href="https://test-oficinas.cbre.es/politica-de-privacidad/">https://test-oficinas.cbre.es/politica-de-privacidad/</a>
+          </p>
+        </form>
+      </div>
+  
+    </div>
+  </div>

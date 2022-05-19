@@ -1,0 +1,308 @@
+.container {
+    max-width: 960px;
+  }
+  
+  /*
+   * Custom translucent site header
+   */
+  
+  .site-header {
+    background-color: rgba(0, 0, 0, .85);
+    -webkit-backdrop-filter: saturate(180%) blur(20px);
+    backdrop-filter: saturate(180%) blur(20px);
+  }
+  .site-header a {
+    color: #8e8e8e;
+    transition: color .15s ease-in-out;
+  }
+  .site-header a:hover {
+    color: #fff;
+    text-decoration: none;
+  }
+  
+  /*
+   * Dummy devices (replace them with your own or something else entirely!)
+   */
+  
+  .product-device {
+    position: absolute;
+    right: 10%;
+    bottom: -30%;
+    width: 300px;
+    height: 540px;
+    background-color: #333;
+    border-radius: 21px;
+    transform: rotate(30deg);
+  }
+  
+  .product-device::before {
+    position: absolute;
+    top: 10%;
+    right: 10px;
+    bottom: 10%;
+    left: 10px;
+    content: "";
+    background-color: rgba(255, 255, 255, .1);
+    border-radius: 5px;
+  }
+  
+  .product-device-2 {
+    top: -25%;
+    right: auto;
+    bottom: 0;
+    left: 5%;
+    background-color: #e5e5e5;
+  }
+  
+  
+  /*
+   * Extra utilities
+   */
+  
+  .flex-equal > * {
+    flex: 1;
+  }
+  @media (min-width: 768px) {
+    .flex-md-equal > * {
+      flex: 1;
+    }
+  }
+  
+  .bd-placeholder-img {
+    font-size: 1.125rem;
+    text-anchor: middle;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+  }
+  
+  @media (min-width: 768px) {
+    .bd-placeholder-img-lg {
+      font-size: 3.5rem;
+    }
+  }
+  
+
+  /*** Email contact modal ***/
+/* The Modal (background) */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  padding: 40px 0;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: black;
+  background-color: rgba(0, 0, 0, 0.4);
+  z-index: 9999; }
+
+@media (min-width: 1000px) {
+  .modal-dialog-centered {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) !important; } }
+
+/* Modal Content */
+.modal-content {
+  position: relative;
+  background-color: #fefefe;
+  margin: 0 auto;
+  padding: 24px;
+  border: 1px solid #888;
+  max-width: 600px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  -webkit-animation-name: animatetop;
+  -webkit-animation-duration: 0.4s;
+  animation-name: animatetop;
+  animation-duration: 0.4s;
+  border-radius: 8px; }
+
+.modal-body {
+  margin: 0 auto; }
+
+.modal-content label {
+  display: block;
+  margin-bottom: 4px;
+  margin-left: 2px;
+  font-size: 14px;
+  font-weight: 600; }
+
+.modal-content #we-call-you + label {
+  display: inline-block;
+  margin-bottom: 16px;
+  font-weight: 500; }
+
+.modal-content input:not([type="checkbox"]),
+.modal-content textarea,
+.modal-content select {
+  -moz-appearance: none;
+       appearance: none;
+  -webkit-appearance: none;
+  display: block;
+  height: 44px;
+  width: 100%;
+  border: 1px solid #ec964a;
+  padding: 0 12px;
+  border-radius: 4px;
+  font-size: 15px;
+  margin-bottom: 16px;
+  background: white; }
+
+.modal-content input[type="tel"] {
+  margin-bottom: 8px; }
+
+.modal-content textarea {
+  padding-top: 1rem;
+  height: auto; }
+
+.modal-content select {
+  cursor: pointer;
+  padding: 0 40px 0 12px; }
+
+.modal-content .select-container {
+  position: relative;
+  padding: 0; }
+
+.modal-content .select-container .select-arrow {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  width: 40px;
+  border-radius: 0 4px 4px 0;
+  color: #ec964a;
+  font-size: 20px;
+  text-align: center;
+  pointer-events: none;
+  cursor: pointer;
+  transition: 0.2s all; }
+
+.modal-content .select-container .select-arrow i {
+  padding-top: 11px;
+  display: block; }
+
+.modal-content button {
+  background: #ec964a;
+  border: none;
+  color: white;
+  padding: 1rem;
+  display: inline-block;
+  text-align: center;
+  margin-top: 1rem;
+  width: 100%;
+  transition: all 0.2s ease;
+  cursor: pointer;
+  border-radius: 4px;
+  font-size: 16px; }
+
+.modal-content button:hover {
+  background: #f59104;
+  transform: scale(1.02); }
+
+.modal-content .legal {
+  font-size: 13px;
+  line-height: 1.1em; }
+
+.modal-content .legal a {
+  color: #ec964a; }
+
+.modal-content .call-us {
+  margin: 28px 0;
+  font-size: 16px;
+  color: rgba(29, 29, 38, 0.8); }
+
+.modal-content .call-us .phone {
+  background: #ec964a;
+  border-radius: 4px;
+  padding: 4px 8px;
+  color: white;
+  margin-left: 8px;
+  font-size: 16px; }
+
+#myModal3 label {
+  display: none; }
+
+/* Add Animation */
+@-webkit-keyframes animatetop {
+  from {
+    top: -300px;
+    opacity: 0; }
+  to {
+    top: 0;
+    opacity: 1; } }
+
+@keyframes animatetop {
+  from {
+    top: -300px;
+    opacity: 0; }
+  to {
+    top: 0;
+    opacity: 1; } }
+
+/* The Close Button */
+.close-modal {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 60px;
+  position: absolute;
+  top: 20px;
+  right: 24px;
+  cursor: pointer;
+  width: 48px;
+  text-align: center;
+  outline: none;
+  transition: all 0.1s ease-in; }
+
+.close-modal:focus,
+.close-modal:hover {
+  color: white; }
+
+.close {
+  color: #ec964a;
+  float: right;
+  font-size: 64px;
+  margin-top: -28px;
+  margin-right: -15px;
+  text-align: center;
+  width: 64px;
+  font-weight: 100; }
+
+.close:focus,
+.close:hover {
+  color: #f59104;
+  text-decoration: none;
+  cursor: pointer; }
+
+.modal-header p {
+  font-size: 14px;
+  margin-bottom: 20px; }
+
+.modal-header p.title {
+  font-size: 24px;
+  margin-bottom: 10px;
+  font-weight: 600;
+  color: #f59104; }
+
+  agm-map {
+    height: 391px;
+    width: 1000px;
+}
+
+.map {
+    height: 391px;
+    width: 1000px;
+    display: inline-block;
+    border-radius: 24px;
+    overflow: hidden;
+  }
+.contenedor-flexbox {
+    display: flex; /*Convertimos al menú en flexbox*/
+    justify-content: space-between; /*Con esto le indicamos que margine todos los items que se encuentra adentro hacia la derecha e izquierda*/
+    align-items: center; /*con esto alineamos de manera vertical*/
+}
+
+
+ 

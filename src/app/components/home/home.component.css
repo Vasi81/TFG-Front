@@ -1,0 +1,108 @@
+.bd-placeholder-img {
+    font-size: 1.125rem;
+    text-anchor: middle;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+  }
+
+  @media (min-width: 768px) {
+    .bd-placeholder-img-lg {
+      font-size: 3.5rem;
+    }
+  }
+
+.home-imagen {
+    background-image: url("../../images/coworking.jpg");
+    position: absolute;
+    height:100%;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-size: cover;
+    background-position: bottom;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    z-index: 1; }
+
+
+   
+
+h1 {
+    margin-top: 70px;
+    font-size: 18px;
+    font-weight: 600;
+    color: #fff;
+    margin-bottom: 20px;
+    text-align: center;
+    letter-spacing: 1px; 
+}
+
+ 
+
+h2  {
+    font-size: 36px;
+    margin-bottom: 25px;
+    font-weight: 700;
+    color: rgb(8, 7, 7);
+    text-align: center; 
+}
+
+.home-overlay {
+    position: absolute;
+    z-index: 2;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(29, 29, 38, 0.5); }
+
+.home-content h1 {
+    margin-top: 70px;
+    font-size: 18px;
+    font-weight: 600;
+    color: #fff;
+    margin-bottom: 20px;
+    text-align: center;
+    letter-spacing: 1px; }
+
+
+.home-content a {
+
+    text-align: center;
+}
+  
+.home-content h2 {
+    font-size: 36px;
+    margin-bottom: 25px;
+    font-weight: 700;
+    color: white;
+    text-align: center; }
+
+.home-content {
+  position: relative;
+  z-index: 3;
+  padding: 0 20px;
+  /* max-width: 1200px; */
+  width: 80%;
+  margin-top: -40px;
+  height: 100%; }
+
+.home {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  height: calc(55vh - 54px); }
+
+
+.home-boton {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  height: calc(32vh - 54px); }
+

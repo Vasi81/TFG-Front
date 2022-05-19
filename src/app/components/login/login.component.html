@@ -1,0 +1,40 @@
+<html lang="en">
+  <head>
+  </head>
+  <body class="text-center">
+    
+<main class="form-signin">
+  <form (ngSubmit)="loginEmployee()" [formGroup]="registerForm">
+    <a class="py-2" href="#" aria-label="Product">
+      <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" fill="none" stroke="orange" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="d-block mx-auto" role="img" viewBox="0 0 24 24"><title>Oficinas</title><circle cx="12" cy="12" r="10"/><path d="M14.31 8l5.74 9.94M9.69 8h11.48M7.38 12l5.74-9.94M9.69 16L3.95 6.06M14.31 16H2.83m13.79-4l-5.74 9.94"/></svg>
+    </a>
+    <h1 class="h3 mb-3 fw-normal">Please sign in</h1>
+
+    <div class="form-floating">
+      <input type="text" formControlName="usuario"  class="form-control" id="floatingInput" placeholder="name@example.com">
+      <label for="floatingInput">Usuario</label>
+      <div *ngIf="form['usuario'].errors" class="invalid-feedback">
+        <div *ngIf="form['usuario'].errors['required']">El usuario es obligatorio</div>
+      </div>
+    </div>
+    <div class="form-floating">
+      <input type="password" formControlName="pwd" class="form-control" id="floatingPassword" placeholder="Password">
+      <label for="floatingPassword">Password</label>
+      <div *ngIf="form['pwd'].errors" class="invalid-feedback">
+        <div *ngIf="form['pwd']errors['required']">Password is required</div>
+        <div *ngIf="form['pwd'].errors['minlength']">Password must be at least 6 characters</div>
+      </div>
+    </div>
+    <div id="alertError" class="alert alert-danger" role="alert">
+      Usuario o Contraseña incorrectos.
+    </div>
+    <button class="btn btn-warning mr-1" type="submit" [disabled]="registerForm.invalid">Sign in</button>
+    <button class="btn btn-secondary" type="reset" (click)="onReset()">Cancel</button>
+    <p class="mt-5 mb-3 text-muted">&copy; 2017–2021</p>
+  </form>
+</main>
+
+
+    
+  </body>
+</html>

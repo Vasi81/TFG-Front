@@ -1,0 +1,73 @@
+<html lang="en">
+
+<body>
+<header>
+</header>
+<main>
+  <section  class="home">
+    <div class="home-imagen"></div>
+    <div class="home-overlay"></div>
+    <div class="home-content ">      
+        <h1>COWORKING Y ALQUILER DE OFICINAS</h1>
+        <h2>¿Qué tipo de oficina estás buscando?</h2>
+        <div class="home-boton" >
+          <a [routerLink]="[ '/oficinas/modality',  'Alquiler' ]" class="btn btn-warning btn-lg">Alquiler</a>
+          <a [routerLink]="[ '/oficinas/modality',  'Coworking' ]" class="btn btn-secondary btn-lg">CoWorking</a>
+        </div>
+      </div>
+  </section>
+  
+  <div class="album py-5 bg-light">
+    <div class="container" >
+      <h2 class="fw-light">Oficinas destacadas en Alquiler</h2>
+      <div class="row row-cols-1 row-cols-sm-2 row-cols-sm-3 g-3" >
+        <div class="col" *ngFor="let oficinas of oficinasService.oficinasDestacadasAlquiler">
+          <div class="card shadow-sm" type="button" [routerLink]="[ '/oficinas',  oficinas.id ]">
+            <img class="bd-placeholder-img card-img-top" src="http://localhost:8082/imagenes/thumbnail/{{ oficinas.id }}.{{ oficinas.extPath }}" alt="{{ oficinas.title }}" width="10%" height="10%">
+            <div class="card-body">            
+              <div class="d-flex justify-content-between align-items-center">
+                <p class="card-text">{{ oficinas.title }}</p>
+                <img src="assets/images/destacado.png" width="10%" height="10%" />
+              </div>
+              <div class="d-flex justify-content-between align-items-center">
+                <small class="text-muted">{{ oficinas.province }} , {{ oficinas.city }}, {{ oficinas.metros }} m²</small>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="album py-5 bg-light">
+    <div class="container">
+      <h2 class="fw-light">Oficinas destacadas en CoWorking</h2>
+      <div class="row row-cols-1 row-cols-sm-2 row-cols-sm-3 g-3" >
+        <div class="col"  *ngFor="let oficinas of oficinasService.oficinasDestacadasCoworking">
+          <div class="card shadow-sm" type="button" [routerLink]="[ '/oficinas',  oficinas.id ]">
+            <img class="bd-placeholder-img card-img-top" src="http://localhost:8082/imagenes/thumbnail/{{ oficinas.id }}.{{ oficinas.extPath }}" alt="{{ oficinas.title }}" width="10%" height="10%">
+            <div class="card-body">
+              <div class="d-flex justify-content-between align-items-center">
+                <p class="card-text">{{ oficinas.title }}</p>
+                <img src="assets/images/destacado.png" width="10%" height="10%" />
+              </div>
+              <div class="d-flex justify-content-between align-items-center">
+                <small class="text-muted">{{ oficinas.province }} , {{ oficinas.city }}, {{ oficinas.metros }} m²</small>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <app-googlemaps></app-googlemaps>
+  </div>
+
+</main>
+
+
+
+    <script src="boostrap5js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+
+      
+  </body>
+</html>

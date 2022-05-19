@@ -1,0 +1,115 @@
+<head>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
+</head>
+
+<header class="site-header sticky-top py-1">
+  
+  <nav class="container d-flex flex-column flex-md-row justify-content-between">
+    <a class="py-2" href="#" aria-label="Product">
+      <svg xmlns="http://www.w3.org/2000/svg" width="34" height="34" fill="none" stroke="orange" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="d-block mx-auto" role="img" viewBox="0 0 24 24"><title>Oficinas</title><circle cx="12" cy="12" r="10"/><path d="M14.31 8l5.74 9.94M9.69 8h11.48M7.38 12l5.74-9.94M9.69 16L3.95 6.06M14.31 16H2.83m13.79-4l-5.74 9.94"/></svg>
+    </a>
+
+    <div class="text-end">
+      <button type="button" class="btn btn-outline-light me-2"  [routerLink]="[ '/serviciosoficinas']">Servicios para Oficinas</button>
+      <button type="button" id="mantenimiento" class="btn btn-outline-light me-2"  [routerLink]="[ '/oficina']">Mantenimiento Oficinas</button>
+      <button type="button" class="btn btn-outline-light me-2" (click)="formularioContacto()">contactar</button>
+      <button type="button" id="login" class="btn btn-warning  me-2"  [routerLink]="[ '/login']">Login</button>
+      <button type="button" class="btn btn-outline-light  me-2" (click)="signUp()">Sign-up</button>
+    </div>
+  </nav>
+</header>
+
+
+<div class="container-xl">
+  <router-outlet></router-outlet>
+</div>
+
+<div id="myModal"  class="modal">
+  <!-- Modal content -->
+  <div class="modal-content">
+    <div class="modal-header">  
+      <p class="title">Solicitud de información</p>
+      <p>Déjanos tus datos y te contestaremos lo antes posible. Muchas gracias.</p>
+      <span id="close" class="close" (click)="ocultarformularioContacto()">×</span>
+    </div>
+    <div class="modal-body">
+      <form id="formulario" [formGroup]="form" (submit)="addFormularioContacto()">
+        <label for="">Nombre*</label>
+        <input type="text" id="nombre" name="nombre" formControlName="nombre" placeholder="Introduce tu nombre" maxlength="50" minlength="2" required>
+        <label for="">Email*</label>
+        <input type="email" id="email" formControlName="email" placeholder="Introduce tu email" required>
+        <label for="">Teléfono</label>
+        <input type="tel" formControlName="telefono" placeholder="Introduce tu teléfono">
+        <label for="">Empresa</label>
+        <input type="text" name="empresa" formControlName="empresa" placeholder="Introduce el nombre de tu empresa">
+        <label for="">Provincia*</label>
+        <div class="select-container">
+          <div class="select-arrow"><i class="ion-ios-arrow-down"></i></div>
+          <select  id="provincia" class="province" required>
+            <option value="-1" selected="" disabled="">Selecciona provincia</option>
+            <option value="Alicante">Alicante</option>
+            <option value="Barcelona">Barcelona</option>
+            <option value="Guipuzcoa">Guipuzcoa</option>
+            <option value="Madrid">Madrid</option>
+            <option value="Mallorca">Mallorca</option>
+            <option value="Málaga">Málaga</option>
+            <option value="Sevilla">Sevilla</option>
+            <option value="Valencia">Valencia</option>
+            <option value="Vizcaya">Vizcaya</option>
+            <option value="Zaragoza">Zaragoza</option>
+          </select>
+        </div>
+        <label for="">Modalidad*</label>
+        <div class="select-container">
+          <div class="select-arrow"><i class="ion-ios-arrow-down"></i></div>
+          <select id="modalidad" class="modality"  required>
+            <option value="-1" selected="" disabled="">Modalidad</option>
+            <option value="Alquiler">Alquiler</option>
+            <option value="Espacios de trabajo flexibles">Espacios de trabajo flexibles</option>
+          </select>
+        </div>
+        <div class="modalidad-alquiler">
+          <label for="">Cantidad de puestos</label>
+          <select id="puestos" name="workspaces" class="tamaño"  placeholder="Cantidad de puestos">
+            <option data-value="todos" value="todos">Cantidad de puestos</option>
+            <option data-value="30" value="30">Hasta 30 puestos (hasta 450 m²)</option>
+            <option data-value="100" value="100">30-100 puestos (450-1.500 m²)</option>
+            <option data-value="300" value="300">100-300 puestos (1.500-4.500 m²)</option>
+            <option data-value="300+" value="300+">Más de 300 puestos (más de 4.500 m²)</option>
+          </select>
+        </div>
+        <label for="">Mensaje*</label>
+        <textarea placeholder="Escribe tu mensaje" id="mensaje" formControlName="message" rows="4" required></textarea>
+        <input class="check" type="checkbox" id="acceptance" required> <span class="legal">He leído y acepto el <a target="_blank" href="/aviso-legal">Aviso Legal</a> y la <a target="_blank" href="/politica-de-privacidad">Política de Privacidad</a></span>
+        <div class="call-us">¿Prefieres llamarnos? <a href="tel:+34911014656" class="phone">91 101 46 56</a></div>
+        <button type="submit" class="btn btn-primary btn-warning">Enviar</button>
+        <p class="form-smalltext">
+          Oficinas&Coworking, S.A, le informa que los datos de carácter personal proporcionados quedarán incorporados en sus bases de datos, y con base en su interés legítimo, tratará sus datos de contacto con la finalidad de mantener relaciones de cualquier índole, prestar y ofrecer sus productos y servicios. Los datos recogidos son almacenados según la confidencialidad y las medidas de seguridad legalmente establecidas.
+          Asimismo, Oficinas&Coworking, S.A. le informa que los datos facilitados podrán ser cedidos a terceras compañías que ofrecen bienes y servicios similares a los aquí ofrecidos.
+          Mediante la firma del presente formulario usted da su consentimiento para que Oficinas&Coworking le envíe información de su interés sobre los productos y servicios de Oficinas&Coworking, S.A 
+          Puede ejercer los derechos de acceso, cancelación, oposición, rectificación, supresión, limitación del tratamiento, portabilidad de los datos, y a no ser objeto de decisiones individuales automatizadas, incluida la elaboración de perfiles; a través de la dirección de correo el,ectrónico spain.gdpr@oficinascoworking.es, personalmente en las oficinas de Oficinas&Coworking, S.A, o mediante comunicación escrita, acompañada de copia del correspondiente documento nacional de identidad, dirigida a Oficinas&Coworking, S.A Paseo de la Castellana 202, planta 8ª,  28046 Madrid.
+          Para más información, no dude en consultar nuestra política de privacidad: <a href="https://oficinascoworking.es/politica-de-privacidad/">https://oficinascoworkinges/politica-de-privacidad/</a>
+        </p>
+      </form>
+    </div>
+
+  </div>
+</div>
+<!--How to Make Responsive Animated Website Footer using Html & CSS | Simple Website Footer Design-->
+<!--footer con bootstrap-->
+<footer>
+  
+  <ul class="social_icon">
+  <li><a href="https://es-es.facebook.com/"><i class="bi bi-facebook"></i></a> </li>
+  <li><a href="https://twitter.com/?lang=es"><i class="bi bi-twitter"></i></a> </li>
+  <li><a href="https://es.linkedin.com/"><i class="bi bi-linkedin"></i></a> </li>
+  <li><a href="https://www.instagram.com/"><i class="bi bi-instagram"></i></a> </li>
+  </ul>
+  <ul class="menu">
+  <li><a [routerLink]="[ '/' ]">Home</a> </li>
+  <li><a [routerLink]="[ '/serviciosoficinas' ]">Servicios</a> </li>
+  <li><a (click)="formularioContacto()" [routerLink]="['/']" >Contacto</a> </li>
+  </ul>
+  <p>Copyright &copy; Todos los derechos reservados</p>
+</footer>
+

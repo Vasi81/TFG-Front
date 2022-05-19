@@ -1,0 +1,25 @@
+<div class="album py-5 bg-light">
+    <div class="card shadow-sm p-3 mb-5 bg-light rounded">
+      <div class="container" >
+        <h2 class="fw-light">Imagenes secundarias</h2>
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3" >
+            <div class="card shadow-sm">
+              <form [formGroup]="form" (submit)="onSubmit()">
+                <div>
+                  <input formControlName="name" type="text" placeholder="Descripción imagen" />
+                </div>
+                <div>
+                  <input (change)="onFileSelect($event)" type="file" />
+                </div>
+                <div *ngIf="imageData">
+                  <img [src]="imageData" [alt]="form.value.name" width="60%" height="60%" />
+                </div>
+                <div>
+                  <button type="submit" class="btn btn-primary btn-warning"><i class="material-icons">upload</i></button>
+                </div>
+              </form>
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>

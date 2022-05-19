@@ -1,0 +1,59 @@
+<head>
+</head>
+<body>
+<main>
+  <div class="vista">
+    <div class="album py-5 bg-light">
+      <button type="submit" class="btn btn-warning" [routerLink]="[ '/employee']">Volver</button>
+      <div class="card shadow-sm p-3 mb-5 bg-light rounded">
+        <h1>Mantenimiento Comerciales </h1>
+        <h2>{{employeeService.nuevoEmp.id}} </h2> 
+        <form #employeeForm="ngForm" (ngSubmit)="addEmployee(employeeForm)">
+          <div class="row">
+            <input type="hidden" name="id" #id="ngModel" [(ngModel)]="employeeService.nuevoEmp.id" class="form-control" id="id" placeholder="id">
+            <div class="col-md-3">
+              <label for="inputNombre"><strong>Nombre</strong></label>
+              <input type="text"  name="nombre" #nombre="ngModel" [(ngModel)]="employeeService.nuevoEmp.nombre" class="form-control" id="inputNombre" placeholder="nombre">
+            </div>
+            <div class="col-md-2">
+              <label for="inputusuario"><strong>Usuario</strong></label>
+              <input type="text"  name="usuario" #usuario="ngModel" [(ngModel)]="employeeService.nuevoEmp.usuario" class="form-control" id="inputusuario" placeholder="usuario">
+            </div>
+            <div class="col-md-5">
+              <label for="inputpwd"><strong>PWD</strong></label>
+              <input type="password"  name="pwd" #usuario="ngModel" [(ngModel)]="employeeService.nuevoEmp.pwd" class="form-control" id="inputpwd" placeholder="pwd">
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-5">
+              <label for="inputemail"><strong>Email</strong></label>
+              <input type="email"  name="email" #email="ngModel" [(ngModel)]="employeeService.nuevoEmp.email" class="form-control" id="inputemail" placeholder="email">
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-5">
+              <label for="role"><strong>Role</strong></label>
+              <select id="role" name="role"  class="form-control">
+                <option selected *ngIf="employeeService.nuevoEmp.role==='Administrador'">Adminsitrador</option>
+                <option selected *ngIf="employeeService.nuevoEmp.role==='Comercial'">Comercial</option>
+                <option>Adminsitrador</option>
+                <option>Comercial</option>
+              </select>
+            </div>
+          </div>
+          <button type="submit" class="btn btn-primary btn-warning">Guardar</button>
+        </form>
+      </div>
+    </div>
+
+</div>
+<div id="modalAviso"  class="modal">
+  <!-- Modal content -->
+  <div class="modal-content">
+    <div class="modal-header">
+      <p id="titleAviso" class="title">Solicitud de información</p>
+      <p id="mensajeAviso"> Déjanos tus datos y te contestaremos lo antes posible. Muchas gracias.</p>
+      <span id="close" class="close" (click)="ocultarAviso()">×</span>
+    </div>
+  </div>
+</div>

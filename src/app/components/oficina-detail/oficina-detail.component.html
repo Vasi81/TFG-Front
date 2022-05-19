@@ -1,0 +1,145 @@
+<head>
+</head>
+<body>
+<main>
+  <div class="vista">
+    <div class="album py-5 bg-light">
+      <button type="submit" class="btn btn-warning" [routerLink]="[ '/oficina']">Volver</button>
+      <div class="card shadow-sm p-3 mb-5 bg-light rounded">
+        <h1>Mantenimiento de Oficinas </h1>
+        <h2>{{oficinasService.nuevoOficina.id}} </h2> 
+        <form #oficinaForm="ngForm" (ngSubmit)="addOficina(oficinaForm)">
+          <div class="row">
+            <input type="hidden" name="id" #id="ngModel" [(ngModel)]="oficinasService.nuevoOficina.id" class="form-control" id="id" placeholder="id">
+            <div class="col-md-2">
+              <label for="inputTitle"><strong>Título</strong></label>
+              <input type="text"  name="title" #title="ngModel" [(ngModel)]="oficinasService.nuevoOficina.title" class="form-control" id="inputTitle" placeholder="title">
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-8">
+              <label for="inputDescription"><strong>Descripción</strong></label>
+              <textarea name="description" #description="ngModel" [(ngModel)]="oficinasService.nuevoOficina.description" class="form-control" id="inputDescrption" placeholder="Dedscripción">
+              </textarea>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-7">
+              <label for="inputroad_name"><strong>Dirección</strong></label>
+              <input type="text"  name="road_name" #road_name="ngModel" [(ngModel)]="oficinasService.nuevoOficina.road_name" class="form-control" id="inputroad_name" placeholder="Calle, dirección">
+            </div>
+            <div class="col-md-2">
+              <label for="inputfloor"><strong>Piso/Planta</strong></label>
+              <input type="text" name="floor" #floor="ngModel" [(ngModel)]="oficinasService.nuevoOficina.floor"  class="form-control" id="inputfloor" placeholder="Piso,Planta">
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-3">
+              <label for="inputProvince"><strong>Provincia</strong></label>
+              <input type="text" name="province" #province="ngModel" [(ngModel)]="oficinasService.nuevoOficina.province"  class="form-control" id="inputProvince" placeholder="Provincia">
+            </div>
+            <div class="col-md-3">
+              <label for="inputCity"><strong>Ciudad</strong></label>
+              <input type="text" name="city" #city="ngModel" [(ngModel)]="oficinasService.nuevoOficina.city"  class="form-control" id="inputCity" placeholder="Ciudad">
+            </div>
+            <div class="col-md-2">
+              <label for="inputZip">Zip</label>
+              <input type="text" name="zip_code" #zip_code="ngModel" [(ngModel)]="oficinasService.nuevoOficina.zip_code"  class="form-control" id="inputZip"  class="form-control" id="Zip">
+            </div>
+            <div class="col-md-2">
+              <label for="is_destacada"><strong>Oficina Destacada</strong> </label>
+              <select id="is_destacada" name="is_destacada"  class="form-control">
+                <option selected *ngIf="oficinasService.nuevoOficina.is_destacada">Si</option>
+                <option selected *ngIf="!oficinasService.nuevoOficina.is_destacada">No</option>
+                <option>Si</option>
+                <option>No</option>
+              </select>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-4">
+              <label for="inputlatitude"><strong>Latitud</strong></label>
+              <input type="text" name="latitude" #latitude="ngModel" [(ngModel)]="oficinasService.nuevoOficina.latitude"  class="form-control" id="inputlatitude" placeholder="latitud">
+            </div>
+            <div class="col-md-4">
+              <label for="inputlongitude"><strong>Longitud</strong></label>
+              <input type="text" name="longitude" #longitude="ngModel" [(ngModel)]="oficinasService.nuevoOficina.longitude"  class="form-control" id="inputlongitude" placeholder="longitud" >
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-6">
+              <label for="comercial"><strong>Comercial</strong></label>
+              <select id="comercial" name="comercial"  class="form-control">
+                <option selected>{{employeeService.nuevoEmp.nombre}}</option>
+                <option [value]="employee.id" *ngFor="let employee of employeeService.employees">{{employee.nombre}}</option>
+              </select>
+            </div>
+            <div class="col-md-2">
+              <label for="modality"><strong>Modalidad</strong></label>
+              <select id="modality" name="modality"  class="form-control">
+                <option selected>{{oficinasService.nuevoOficina.modality}}</option>
+                <option>Alquiler</option>
+                <option>Coworking</option>
+              </select>
+            </div>
+            <div class="col-md-2">
+              <label for="inputmetros"><strong>m²</strong></label>
+              <input type="number" name="metros" #metros="ngModel" [(ngModel)]="oficinasService.nuevoOficina.metros"  class="form-control" id="inputmetros" placeholder="m²">
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-3">
+              <label for="inputunderground"><strong>Metro</strong></label>
+              <input type="text" name="underground" #underground="ngModel" [(ngModel)]="oficinasService.nuevoOficina.underground"  class="form-control" id="inputunderground" placeholder="Metro">
+            </div>
+            <div class="col-md-3">
+              <label for="inputtrain"><strong>Tren/Cercanías</strong></label>
+              <input type="text" name="train" #train="ngModel" [(ngModel)]="oficinasService.nuevoOficina.train"  class="form-control" id="inputtrain" placeholder="Tren , Cercanías">
+            </div>
+            <div class="col-md-3">
+              <label for="inputbus"><strong>Bus</strong></label>
+              <input type="text" name="bus" #bus="ngModel" [(ngModel)]="oficinasService.nuevoOficina.bus"  class="form-control" id="inputbus" placeholder="Bus">
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-5">
+              <label for="parking_publico"><strong>Parking Público</strong></label>
+              <select id="parking_publico" name="parking_publico"  class="form-control">
+                <option selected *ngIf="oficinasService.nuevoOficina.parking_public">Si</option>
+                <option selected *ngIf="!oficinasService.nuevoOficina.parking_public">No</option>
+                <option>Si</option>
+                <option>No</option>
+              </select>
+            </div>
+            <div class="col-md-4">
+              <label for="parking_privado"><strong>Parking Privado</strong></label>
+              <select id="parking_privado" name="parking_privado"  class="form-control">
+                <option selected *ngIf="oficinasService.nuevoOficina.parking_private">Si</option>
+                <option selected *ngIf="!oficinasService.nuevoOficina.parking_private">No</option>
+                <option>Si</option>
+                <option>No</option>
+              </select>
+            </div>
+          </div>
+
+          <button type="submit" class="btn btn-primary btn-warning">Guardar</button>
+        </form>
+      </div>
+    </div>
+
+</div>
+
+<div id="modalAviso"  class="modal">
+  <!-- Modal content -->
+  <div class="modal-content">
+    <div class="modal-header">
+      <p id="titleAviso" class="title">Solicitud de información</p>
+      <p id="mensajeAviso"> Déjanos tus datos y te contestaremos lo antes posible. Muchas gracias.</p>
+      <span id="close" class="close" (click)="ocultarAviso()">×</span>
+    </div>
+  </div>
+</div>
+
+<app-create-profile></app-create-profile><app-create-profile-secundary></app-create-profile-secundary><app-all-profiles></app-all-profiles>
+</main>
+</body>
