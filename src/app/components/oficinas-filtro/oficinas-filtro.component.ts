@@ -56,7 +56,7 @@ export class OficinasFiltroComponent implements OnInit {
       .subscribe((res) => {
         if (this.typeOficina == 'Alquiler') {
           var x = document.getElementById('Coworking') as HTMLElement;
-          x.style.display = 'block';
+          x.style.display = 'none';
           this.oficinasService.oficinasDestacadasAlquiler = res;
         } else {
           var x = document.getElementById('Alquiler') as HTMLElement;
